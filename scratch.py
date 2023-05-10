@@ -15,18 +15,17 @@ st.title(":office: UDAAN 2023")
 # Displaying an image on road accidents
 st.image("https://media.istockphoto.com/id/1350787994/photo/light-bulbs-with-event-management-concept.jpg?b=1&s=170667a&w=0&k=20&c=GvH8NqOq5dU3AIPCsKIoXLkD8SijfcJiB0VhnS5RUV8=", caption=" Creator: A melange of various activities ", use_column_width=True, clamp=255, channels="RGB", output_format="auto")
 st.write("""
-   We are hosting an intercollegiate national-level technical fest organized by RYAN (Deemed to be University) Pune. 
+    We are hosting an 1 month intercollegiate national-level technical workshops organized by RYAN (Deemed to be University) Pune. 
    It brings forth a mélange of events and competitions in different disciplines of Computer Science, Economics, logical reasoning, presentation expertise, and the art of humor. 
-   Your participation is welcomed. Kindly fill in the form to participate in a week long event. 
-
-    You are free to select various groups to volunteer in. The details of each group are mentioned below.
-    1. Poster making: Creating catchy and informative posters for all the events 
-    2. Sponsorship: Persuasive in finding and contacting sponsors for the event 
-    3. Invitation: Contacting other universities and colleges for participation in the event  
-    4. Social media: Creating and managing  social media page 
-    5. Content: Generating content which will be used for communication like emails, social media, etc. 
-    6. Graphics: Creating graphics for the event
-    7. Video editing: creating and editing promotional videos and teasers for the event 
+   Interserted candidates can kindly fill in the form to participate in a week long event. 
+    The details of each group are mentioned below.
+    1. Cloud Computing 
+    2. Econometrics 
+    3. Civil Law
+    4. Psychology
+    5. Human Resource Manager 
+    6. Graphic Designing and Data Visualization
+    7. System Design  
 
     """)
 
@@ -54,7 +53,7 @@ def get_student_academic_details():
         semester = f"Semester {i + 1}"
         cgpa1 = st.number_input(f"Enter CGPA for Semester {i + 1}:", min_value=0.0, max_value=4.0, step=0.01)
         cgpa[semester] = cgpa1
-    choices = ['Poster making', 'Sponsorship','Invitation', 'Social media', 'Content', 'Graphics', 'Video editing']
+    choices = choices = ['Cloud Computing ','Econometrics'  ,'Civil Law','Psychology' ,'Human Resource Manager' ,'Graphic Designing and Data Visualization','System Design' ]
     selected_choices = st.multiselect('Select your event preference:', choices)
     return semester,  cgpa, selected_choices
 
