@@ -41,7 +41,7 @@ def get_student_details():
     gender = st.selectbox("Gender", ["Male", "Female", "Rather Not Say"])
     email = st.text_input("Email")
     address = st.text_area("Address")
-    return name, regNo, dept, class1, mobile,dob, gender, email, address
+    return name, regNo, dept, class1, mobile, gender, email, address
 
 
 # Create a function to collect the student's academic details
@@ -66,13 +66,13 @@ def submit_application():
 
 # Create the main application
 def main():
-    name, regNo, dept, class1, mobile, dob, gender, email, address = get_student_details()
+    name, regNo, dept, class1, mobile, gender, email, address = get_student_details()
     semester, cgpa, selected_choices = get_student_academic_details()
 
     if st.button("Submit"):
         submit_application()
         st.balloons()
-        data = {'name': name, 'regno': regNo,'department' : dept, 'class': class1,'mobile': mobile, 'dob': dob, 'gender' : gender, 'email': email, 'address': address, 'cgpa' : cgpa, 'event': selected_choices}
+        data = {'name': name, 'regno': regNo,'department' : dept, 'class': class1,'mobile': mobile, 'gender' : gender, 'email': email, 'address': address, 'cgpa' : cgpa, 'event': selected_choices}
         collection.insert_one(data)
         st.write('Form data inserted into MongoDB database.')
 
