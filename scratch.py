@@ -73,12 +73,9 @@ def main():
     if st.button("Submit"):
         submit_application()
         st.balloons()
-
-# Insert the form data into the database if the form was submitted and all required fields were filled
-if submitted:
-    data = {'name': name, 'regno': regNo,'department' : dept, 'class': class1,'mobile': mobile, 'dob': dob, 'gender' : gender, 'email': email, 'address': address, 'cgpa' : cgpa, 'event': selected_choices}
-    collection.insert_one(data)
-    st.write('Form data inserted into MongoDB database.')
+        data = {'name': name, 'regno': regNo,'department' : dept, 'class': class1,'mobile': mobile, 'dob': dob, 'gender' : gender, 'email': email, 'address': address, 'cgpa' : cgpa, 'event': selected_choices}
+        collection.insert_one(data)
+        st.write('Form data inserted into MongoDB database.')
 
 if __name__ == "__main__":
     main()
