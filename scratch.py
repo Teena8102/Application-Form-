@@ -3,7 +3,7 @@ import streamlit as st
 from pymongo import MongoClient
 
 uri = "mongodb+srv://teena:<password>@atlascluster.jigryku.mongodb.net/?retryWrites=true&w=majority'
-client = pymongo.MongoClient(url)
+client = MongoClient(url)
 db = client['Udaan']
 collection = db['Participants']
 
