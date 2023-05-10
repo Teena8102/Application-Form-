@@ -76,24 +76,11 @@ def main():
         data = {'name': name, 'regno': regNo,'department' : dept, 'class': class1,'dob': dob, 'mobile': mobile, 'gender' : gender, 'email': email, 'address': address, 'cgpa' : cgpa, 'event': selected_choices}
         collection.insert_one(data)
         st.write('Form data inserted into MongoDB database.')
-
-    
- def get_form_values():
-    # Retrieve form values from user input
-    name = st.text_input("Name")
-    regno = st.text_input('Register No')
-
-    # Return the form values as a dictionary
-    return {"name": name, "regno": regno}
-
-# Call the function to get the form values
-form_data = get_form_values()
-
-# Display the form values
-st.write("Form values:", form_data)
-
-# You can update the form later by calling the function again
-updated_form_data = get_form_values()
+        
+# Update the value based document 
+if st.button('Update application'):
+    regNo = st.text_input("Registration No.:")
+    document = Participants.find_one({"_id": document_id})
 
 # Display the updated form values
 st.write("Updated form values:", updated_form_data)
