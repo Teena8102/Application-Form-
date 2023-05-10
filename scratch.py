@@ -38,7 +38,6 @@ def get_student_details():
     dept = st.selectbox('Enter your Department', ['BBA', 'B.Com', 'Law', 'Data Science', 'MBA'])
     class1 = st.text_input('Enter your Class')
     mobile = st.text_input("Enter your Whatsapp Number")
-    dob = st.date_input("Enter your DOB:", datetime.date(2001, 1, 1))
     gender = st.selectbox("Gender", ["Male", "Female", "Rather Not Say"])
     email = st.text_input("Email")
     address = st.text_area("Address")
