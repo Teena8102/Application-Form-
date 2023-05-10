@@ -76,7 +76,8 @@ def main():
         data = {'name': name, 'regno': regNo,'department' : dept, 'class': class1,'dob': dob, 'mobile': mobile, 'gender' : gender, 'email': email, 'address': address, 'cgpa' : cgpa, 'event': selected_choices}
         collection.insert_one(data)
         st.write('Form data inserted into MongoDB database.')
-        
+
+    
  def get_form_values():
     # Retrieve form values from user input
     name = st.text_input("Name")
