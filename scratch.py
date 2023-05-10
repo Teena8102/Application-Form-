@@ -77,13 +77,11 @@ def main():
         collection.insert_one(data)
         st.write('Form data inserted into MongoDB database.')
         
-# Update the value based document 
-if st.button('Update application'):
-    regNo = st.text_input("Registration No.:")
-    document = Participants.find_one({"_id": document_id})
-
-# Display the updated form values
-st.write("Updated form values:", updated_form_data)
+    # Update the value based document 
+    if st.button('Update application'):
+        regNo = st.text_input("Registration No.:")
+        document = Participants.find_one({'regno': regNo })
+        print(document)
 
 if __name__ == "__main__":
     main()
