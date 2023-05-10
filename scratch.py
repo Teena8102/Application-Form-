@@ -2,8 +2,8 @@ import datetime
 import streamlit as st
 from pymongo import MongoClient
 
-# Connect to the MongoDB database
-client = pymongo.MongoClient('mongodb://localhost:27017/')
+uri = "mongodb+srv://teena:<password>@atlascluster.jigryku.mongodb.net/?retryWrites=true&w=majority'
+client = pymongo.MongoClient(url)
 db = client['Udaan']
 collection = db['Participants']
 
