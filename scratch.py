@@ -79,8 +79,8 @@ def main():
         
     # Update the value based document 
     if st.button('Update application'):
-        regNo = st.text_input("Registration No.:")
-        document = Participants.find_one({'regno': regNo })
+        regNO = st.text_input("Registration No.:")
+        document = Participants.find_one({'regno': regNO })
         print(document)
 
 if __name__ == "__main__":
