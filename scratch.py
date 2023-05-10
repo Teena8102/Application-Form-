@@ -37,10 +37,12 @@ def get_student_details():
     dept = st.selectbox('Enter your Department', ['BBA', 'B.Com', 'Law', 'Data Science', 'MBA'])
     class1 = st.text_input('Enter your Class')
     mobile = st.text_input("Enter your Whatsapp Number")
+    dob1 = st.date_input("Date of Birth ")
+    dob = dob1.strftime("%Y-%m-%dT%H:%M:%S.%fZ")
     gender = st.selectbox("Gender", ["Male", "Female", "Rather Not Say"])
     email = st.text_input("Email")
     address = st.text_area("Address")
-    return name, regNo, dept, class1, mobile, gender, email, address
+    return name, regNo, dept, class1, dob, mobile, gender, email, address
 
 
 # Create a function to collect the student's academic details
@@ -65,15 +67,35 @@ def submit_application():
 
 # Create the main application
 def main():
-    name, regNo, dept, class1, mobile, gender, email, address = get_student_details()
+    name, regNo, dept, class1, dob, mobile, gender, email, address = get_student_details()
     semester, cgpa, selected_choices = get_student_academic_details()
 
     if st.button("Submit"):
         submit_application()
         st.balloons()
-        data = {'name': name, 'regno': regNo,'department' : dept, 'class': class1,'mobile': mobile, 'gender' : gender, 'email': email, 'address': address, 'cgpa' : cgpa, 'event': selected_choices}
+        data = {'name': name, 'regno': regNo,'department' : dept, 'class': class1,'dob': dob, 'mobile': mobile, 'gender' : gender, 'email': email, 'address': address, 'cgpa' : cgpa, 'event': selected_choices}
         collection.insert_one(data)
         st.write('Form data inserted into MongoDB database.')
+        
+ def get_form_values():
+    # Retrieve form values from user input
+    name = st.text_input("Name")
+    regno = st.text_input('Register No')
+
+    # Return the form values as a dictionary
+    return {"name": name, "regno": regno}
+
+# Call the function to get the form values
+form_data = get_form_values()
+
+# Display the form values
+st.write("Form values:", form_data)
+
+# You can update the form later by calling the function again
+updated_form_data = get_form_values()
+
+# Display the updated form values
+st.write("Updated form values:", updated_form_data)
 
 if __name__ == "__main__":
     main()
