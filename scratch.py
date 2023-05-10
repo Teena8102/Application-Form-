@@ -2,7 +2,7 @@ import datetime
 import streamlit as st
 from pymongo import MongoClient
 
-uri = "mongodb+srv://teena:<password>@atlascluster.jigryku.mongodb.net/?retryWrites=true&w=majority"
+uri = "mongodb+srv://teena:iamteena@atlascluster.jigryku.mongodb.net/?retryWrites=true&w=majority"
 client = MongoClient(uri)
 db = client['Udaan']
 collection = db['Participants']
